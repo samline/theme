@@ -2,7 +2,7 @@
 
 Light, dark and system themes that are on the page before it paints, with a remembered choice, live system changes, sync across tabs and accessible controls. For vanilla JavaScript, any framework and plain HTML.
 
-[Demo](https://samline.github.io/utils/theme/) · [Examples](https://samline.github.io/utils/theme/examples/) · [Documentation](https://samline.github.io/utils/docs/theme/) · [Changelog](CHANGELOG.md)
+[Demo](https://samline.github.io/theme/) · [Examples](https://samline.github.io/theme/examples/) · [Documentation](https://samline.github.io/theme/docs/) · [Changelog](CHANGELOG.md)
 
 ## Table of contents
 
@@ -107,13 +107,13 @@ CSS transitions pause while the theme changes, so the page swaps at once. Listen
 
 ## API at a glance
 
-| API                                                                                                                               | Purpose                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [`createTheme(options?)`](https://samline.github.io/utils/docs/theme/reference/api/)                                              | Apply, remember and follow the theme. Returns `{ mode, theme, set, toggle, subscribe, destroy }`. |
-| [`themeScript(options?)`](https://samline.github.io/utils/docs/theme/reference/api/)                                              | Inline `<head>` snippet that applies the stored theme before the first paint.                     |
-| [`data-theme-set`, `data-theme-toggle`, `data-theme-select`](https://samline.github.io/utils/docs/theme/reference/configuration/) | Controls handled without code.                                                                    |
-| [`ThemeOptions`](https://samline.github.io/utils/docs/theme/reference/configuration/)                                             | Themes, default mode, attribute, target, theme color, storage and controls.                       |
-| `themechange`                                                                                                                     | Event with `{ mode, theme }` on every change.                                                     |
+| API                                                                                                                         | Purpose                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [`createTheme(options?)`](https://samline.github.io/theme/docs/reference/api/)                                              | Apply, remember and follow the theme. Returns `{ mode, theme, set, toggle, subscribe, destroy }`. |
+| [`themeScript(options?)`](https://samline.github.io/theme/docs/reference/api/)                                              | Inline `<head>` snippet that applies the stored theme before the first paint.                     |
+| [`data-theme-set`, `data-theme-toggle`, `data-theme-select`](https://samline.github.io/theme/docs/reference/configuration/) | Controls handled without code.                                                                    |
+| [`ThemeOptions`](https://samline.github.io/theme/docs/reference/configuration/)                                             | Themes, default mode, attribute, target, theme color, storage and controls.                       |
+| `themechange`                                                                                                               | Event with `{ mode, theme }` on every change.                                                     |
 
 ### Entrypoints
 
@@ -125,29 +125,29 @@ CSS transitions pause while the theme changes, so the page swaps at once. Listen
 
 ## Documentation
 
-Read the [documentation](https://samline.github.io/utils/docs/theme/) for the full guides and API contracts, and explore [working examples](https://samline.github.io/utils/theme/examples/) with complete and separate source files.
+Read the [documentation](https://samline.github.io/theme/docs/) for the full guides and API contracts, and explore [working examples](https://samline.github.io/theme/examples/) with complete and separate source files.
 
-| Guide                                                                          | What it covers                                                   |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [Installation](https://samline.github.io/utils/docs/theme/getting-started/)    | npm, CDN and the first toggle.                                   |
-| [API reference](https://samline.github.io/utils/docs/theme/reference/api/)     | `createTheme`, `themeScript`, the controller and `window.Theme`. |
-| [Options](https://samline.github.io/utils/docs/theme/reference/configuration/) | Options, controls and script attributes.                         |
-| [Layouts](https://samline.github.io/utils/docs/theme/guides/layouts/)          | CSS, custom themes, server rendering, widgets and transitions.   |
-| [Frameworks](https://samline.github.io/utils/docs/theme/guides/frameworks/)    | React, Vue, Svelte, Astro and Next.js.                           |
+| Guide                                                                    | What it covers                                                   |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [Installation](https://samline.github.io/theme/docs/getting-started/)    | npm, CDN and the first toggle.                                   |
+| [API reference](https://samline.github.io/theme/docs/reference/api/)     | `createTheme`, `themeScript`, the controller and `window.Theme`. |
+| [Options](https://samline.github.io/theme/docs/reference/configuration/) | Options, controls and script attributes.                         |
+| [Layouts](https://samline.github.io/theme/docs/guides/layouts/)          | CSS, custom themes, server rendering, widgets and transitions.   |
+| [Frameworks](https://samline.github.io/theme/docs/guides/frameworks/)    | React, Vue, Svelte, Astro and Next.js.                           |
 
 ## Changelog
 
-Read [CHANGELOG.md](CHANGELOG.md) or the [published changelog](https://samline.github.io/utils/docs/theme/changelog/) for release history and explicitly marked breaking and behavior changes. Review the notes before upgrading.
+Read [CHANGELOG.md](CHANGELOG.md) or the [published changelog](https://samline.github.io/theme/docs/changelog/) for release history and explicitly marked breaking and behavior changes. Review the notes before upgrading.
 
 ## AI agent skill
 
-The [Theme skill](https://samline.github.io/utils/skills/theme/SKILL.md) teaches verified package integration. Its maintained [repository source](site/SKILL.md) and website download are the same file. Verify the installed package version before applying its guidance.
+The [Theme skill](https://samline.github.io/theme/skills/theme/SKILL.md) teaches verified package integration. Its maintained [repository source](skills/theme/SKILL.md) and website download are the same file. Verify the installed package version before applying its guidance.
 
-Download [SKILL.md](https://samline.github.io/utils/skills/theme/SKILL.md) into a `theme/` folder in your agent's supported skill directory. For agents that discover project skills from `.agents/skills/`:
+Download [SKILL.md](https://samline.github.io/theme/skills/theme/SKILL.md) into a `theme/` folder in your agent's supported skill directory. For agents that discover project skills from `.agents/skills/`:
 
 ```sh
 mkdir -p .agents/skills/theme
-curl --fail --location https://samline.github.io/utils/skills/theme/SKILL.md \
+curl --fail --location https://samline.github.io/theme/skills/theme/SKILL.md \
   --output .agents/skills/theme/SKILL.md
 ```
 
