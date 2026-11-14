@@ -5,7 +5,7 @@ description: Use @samline/theme in React, Vue, Svelte, Astro and Next.js, with t
 locale: en
 sidebar:
   group: guides
-  order: 3
+  order: 4
 ---
 
 Create one controller for the page and share it. Apply the theme in `<head>` first, with the CDN script or `themeScript()`, so nothing flashes before your bundle runs.
