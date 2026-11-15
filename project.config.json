@@ -1,0 +1,41 @@
+{
+  "package": {
+    "name": "Theme",
+    "npmName": "@samline/theme",
+    "version": "1.0.0",
+    "description": "Light, dark and system themes without a flash: stored choice, system preference, other tabs, color-scheme and accessible toggle, button, radio and select controls, for vanilla JavaScript, any framework and plain HTML.",
+    "author": "Samuel Olvera (samline)",
+    "license": "MIT",
+    "keywords": [
+      "theme",
+      "dark-mode",
+      "light-mode",
+      "color-scheme",
+      "prefers-color-scheme",
+      "theme-toggle",
+      "no-flash",
+      "localstorage"
+    ]
+  },
+  "site": {
+    "url": "https://samline.github.io/theme/",
+    "repository": "https://github.com/samline/theme",
+    "namespace": "samline-theme",
+    "template": false,
+    "credit": "samline"
+  },
+  "theme": {
+    "accentLight": "#bf4532",
+    "accentDark": "#ea6a55"
+  },
+  "delivery": {
+    "cdnScript": "https://cdn.jsdelivr.net/npm/@samline/theme@1.0.0/dist/browser/theme.global.js",
+    "cdnStylesheet": null,
+    "cdnScriptHead": true
+  },
+  "dev": {
+    "landingPort": 4490,
+    "docsPort": 4491,
+    "testPort": 4498
+  }
+}
