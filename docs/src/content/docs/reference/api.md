@@ -30,7 +30,7 @@ theme.set('sepia')
 | `mode`                | What was chosen: a theme name or `'system'`                                                         |
 | `theme`               | The theme in effect: `'system'` resolved to `'light'` or `'dark'`                                   |
 | `set(mode)`           | Choose a theme name or `'system'`; stores it. Unknown names are ignored. `'auto'` means `'system'`. |
-| `toggle()`            | Switch between light and dark, from the theme in effect                                             |
+| `toggle()`            | Switch to the opposite of the theme in effect; back to `system` when that is what the system shows  |
 | `subscribe(listener)` | Called with `{ mode, theme }` on every change; returns an unsubscribe function                      |
 | `destroy()`           | Stop following the system, other tabs and controls. The theme stays applied.                        |
 
