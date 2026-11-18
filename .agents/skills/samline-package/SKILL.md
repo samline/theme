@@ -9,6 +9,7 @@ Apply these rules in every @samline repository. The repository's own `AGENTS.md`
 
 ## Before changing code
 
+0. Use the `codebase-memory` skill (`.agents/skills/codebase-memory`) for structural exploration whenever `codebase-memory-mcp` is installed; read source only for gaps.
 1. Read the package README, `AGENTS.md`, tests and `CHANGELOG.md`.
 2. Check whether a sibling package already solves the problem (registry: `repos.json` in the hub, or the list in this skill's description).
 3. Reuse primitives instead of re-implementing them: `@samline/internal` (auto-init, `data-*` readers, `resolveElements`, `isBrowser`, reduced motion), `@samline/is-visible` (IntersectionObserver pool), `@samline/debounce` (timing). Install the published versions from npm (`pnpm add -D @samline/<primitive>`); never link, alias or import a local checkout of a sibling repository. To use an unreleased change, the primitive is released first. `tsup.config.ts` bundles them with `noExternal: [/^@samline\//]` and `dts: { resolve: noExternal }`.
@@ -38,6 +39,17 @@ Apply these rules in every @samline repository. The repository's own `AGENTS.md`
 - Public text in English. README follows the canonical structure (Installation, Quick start, Capabilities, API at a glance, Documentation, Changelog, AI agent skill, License).
 - A public API change updates source, tests, README, site docs and examples, and `skills/<name>/SKILL.md` in the same change.
 - CDN URLs pin an exact version on jsDelivr.
+
+## Website
+
+- Live examples with state the visitor can change offer Reset: previews start through `preview('<id>', root => cleanup)` from `shared/lib/preview.ts` (`forget(key)` clears stored state). Examples with nothing to undo skip it.
+- Icons and arrows are SVG (`shared/components/Icon.astro`, `shared/lib/close-icon.ts`, inline SVG in copyable code), never Unicode glyphs such as `↗ ↓ × ✓`.
+
+## Repository hygiene
+
+- The repository is public: no dated reports, audit write-ups, handoff notes, transcripts, client names or private paths. Private notes go in the ignored `.local/`.
+- `AGENTS.md` keeps durable rules and their reasons, not validation logs or release diaries.
+- Work skills in `.agents/skills/` come from `npx autoskills -y -a universal` and are tracked with `skills-lock.json`; delete the `bun` skill after a refresh (it contradicts pnpm installs) and never edit upstream skill files. `modern-web-guidance` (GoogleChrome) is tracked too: search it before HTML, CSS or client-side JavaScript changes.
 
 ## Releases
 
