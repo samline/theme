@@ -18,7 +18,7 @@ const modes = [
       ))}
     </div>
     <button type="button" class="toggle" data-theme-toggle>
-      <span aria-hidden="true">◐</span> Toggle
+      <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align: -0.125em"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" /></svg> Toggle
     </button>
   </div>
   <div class="page">
@@ -52,7 +52,7 @@ const modes = [
     const theme = createTheme({
       target: root.querySelector('.page')!,
       scope: root,
-      storageKey: 'utils-theme-demo',
+      storageKey: 'theme-site-demo',
       onChange: show,
     })
     show(theme)

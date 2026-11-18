@@ -78,7 +78,7 @@ const head = `<script>${themeScript()}</script>`
 For Shopify, WordPress or plain HTML pages without a build step, load the browser bundle in `<head>`, without `defer`, so the theme applies before the page paints. Pin the version in production.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@samline/theme@1.0.0/dist/browser/theme.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@samline/theme@1.1.0/dist/browser/theme.global.js"></script>
 ```
 
 The bundle defines `window.Theme`. Pass options as `data-themes`, `data-default`, `data-attribute` and `data-storage-key` on the script tag, or add `data-manual` and call `Theme.auto(options)`.

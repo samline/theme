@@ -23,7 +23,7 @@ export default [
       'A data-theme-toggle button switches between light and dark from the theme in effect and reports its state with aria-pressed. The choice is remembered.',
     files: {
       html: `<button type="button" class="toggle" data-theme-toggle>
-  <span aria-hidden="true">◐</span> Dark mode
+  <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align: -0.125em"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" /></svg> Dark mode
 </button>
 <div class="card">
   <h1>Hello</h1>

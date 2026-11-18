@@ -7,13 +7,13 @@ import './_shared.css'
     <fieldset>
       <legend>Theme</legend>
       <label>
-        <input type="radio" name="utils-theme-custom" data-theme-set="light" /> Light
+        <input type="radio" name="theme-site-custom" data-theme-set="light" /> Light
       </label>
       <label>
-        <input type="radio" name="utils-theme-custom" data-theme-set="dark" /> Dark
+        <input type="radio" name="theme-site-custom" data-theme-set="dark" /> Dark
       </label>
       <label>
-        <input type="radio" name="utils-theme-custom" data-theme-set="sepia" /> Sepia
+        <input type="radio" name="theme-site-custom" data-theme-set="sepia" /> Sepia
       </label>
     </fieldset>
     <div class="card">
@@ -24,15 +24,22 @@ import './_shared.css'
 
 <script>
   import { createTheme } from '@samline/theme'
+  import { forget, preview } from '../../shared/lib/preview'
 
-  const root = document.querySelector<HTMLElement>('[data-preview="custom"]')!
-  createTheme({
-    target: root.querySelector('.stage')!,
-    scope: root,
-    themes: ['light', 'dark', 'sepia'],
-    defaultMode: 'light',
-    attribute: 'class',
-    storageKey: 'utils-theme-example-custom',
+  const storageKey = 'theme-site-example-custom'
+
+  preview('custom', stage => {
+    const root = stage.querySelector<HTMLElement>('[data-preview="custom"]')!
+    const theme = createTheme({
+      target: root.querySelector('.stage')!,
+      scope: root,
+      themes: ['light', 'dark', 'sepia'],
+      defaultMode: 'light',
+      attribute: 'class',
+      storageKey,
+    })
+    // Reset also forgets the stored choice, so the example starts over.
+    return [theme, () => forget(storageKey)]
   })
 </script>
 

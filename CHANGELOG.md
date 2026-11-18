@@ -2,11 +2,17 @@
 
 All notable changes to this package. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [semver](https://semver.org/).
 
-## Unreleased
+## [1.1.0] - 2026-11-17
 
 ### Changed
 
+- Internal: the DOM controller moved from `src/core` to `src/vanilla`; `src/core` keeps the DOM-free types, constants and helpers. Public entries are unchanged.
+- `toggle()` (and `data-theme-toggle`) goes back to `system` when the theme it switches to is the one the operating system shows, instead of storing it. Toggling twice no longer pins the theme against later system changes. With a `defaultMode` other than `system`, it still stores `light` or `dark`.
 - The package moved from the `samline/utils` monorepo to its own repository, [samline/theme](https://github.com/samline/theme). Homepage, repository and documentation links point to the package's own site.
+
+### Fixed
+
+- `themeScript()` ignores a `defaultMode` that is not one of `themes` and follows the system, like `createTheme()`. Before, the inline script wrote the unknown name and the controller then switched to the system theme, so the page flashed.
 
 ## [1.0.0] - 2026-11-13
 

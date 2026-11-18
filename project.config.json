@@ -2,7 +2,7 @@
   "package": {
     "name": "Theme",
     "npmName": "@samline/theme",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Light, dark and system themes without a flash: stored choice, system preference, other tabs, color-scheme and accessible toggle, button, radio and select controls, for vanilla JavaScript, any framework and plain HTML.",
     "author": "Samuel Olvera (samline)",
     "license": "MIT",
@@ -29,7 +29,7 @@
     "accentDark": "#22d3ee"
   },
   "delivery": {
-    "cdnScript": "https://cdn.jsdelivr.net/npm/@samline/theme@1.0.0/dist/browser/theme.global.js",
+    "cdnScript": "https://cdn.jsdelivr.net/npm/@samline/theme@1.1.0/dist/browser/theme.global.js",
     "cdnStylesheet": null,
     "cdnScriptHead": true
   },

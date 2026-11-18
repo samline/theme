@@ -31,18 +31,25 @@ import './_shared.css'
 
 <script>
   import { createTheme, type ThemeState } from '@samline/theme'
+  import { forget, preview } from '../../shared/lib/preview'
 
-  const root = document.querySelector<HTMLElement>('[data-preview="picker"]')!
-  const output = root.querySelector('output')!
-  const show = ({ mode, theme }: ThemeState) =>
-    (output.value = mode === 'system' ? `Following the system: ${theme}` : `Chosen: ${theme}`)
-  const theme = createTheme({
-    target: root.querySelector('.stage')!,
-    scope: root,
-    storageKey: 'utils-theme-example-picker',
-    onChange: show,
+  const storageKey = 'theme-site-example-picker'
+
+  preview('picker', stage => {
+    const root = stage.querySelector<HTMLElement>('[data-preview="picker"]')!
+    const output = root.querySelector('output')!
+    const show = ({ mode, theme }: ThemeState) =>
+      (output.value = mode === 'system' ? `Following the system: ${theme}` : `Chosen: ${theme}`)
+    const theme = createTheme({
+      target: root.querySelector('.stage')!,
+      scope: root,
+      storageKey,
+      onChange: show,
+    })
+    show(theme)
+    // Reset also forgets the stored choice, so the example starts over.
+    return [theme, () => forget(storageKey)]
   })
-  show(theme)
 </script>
 
 <style>

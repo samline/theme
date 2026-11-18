@@ -5,7 +5,7 @@ import './_shared.css'
 <div class="preview theme-example" data-preview="toggle">
   <div class="stage">
     <button type="button" class="pill" data-theme-toggle>
-      <span aria-hidden="true">◐</span> Dark mode
+      <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align: -0.125em"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" /></svg> Dark mode
     </button>
     <div class="card">
       <p>This box remembers its own theme. Reload the page: it stays.</p>
@@ -15,13 +15,20 @@ import './_shared.css'
 
 <script>
   import { createTheme } from '@samline/theme'
+  import { forget, preview } from '../../shared/lib/preview'
 
-  const root = document.querySelector<HTMLElement>('[data-preview="toggle"]')!
-  // Theme this box only, with its own storage and controls.
-  createTheme({
-    target: root.querySelector('.stage')!,
-    scope: root,
-    storageKey: 'utils-theme-example-toggle',
-    defaultMode: 'light',
+  const storageKey = 'theme-site-example-toggle'
+
+  preview('toggle', stage => {
+    const root = stage.querySelector<HTMLElement>('[data-preview="toggle"]')!
+    // Theme this box only, with its own storage and controls.
+    const theme = createTheme({
+      target: root.querySelector('.stage')!,
+      scope: root,
+      storageKey,
+      defaultMode: 'light',
+    })
+    // Reset also forgets the stored choice, so the example starts over.
+    return [theme, () => forget(storageKey)]
   })
 </script>
