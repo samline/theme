@@ -1,10 +1,2 @@
-export {
-  EVENT,
-  SYSTEM,
-  createTheme,
-  themeScript,
-  type Theme,
-  type ThemeMode,
-  type ThemeOptions,
-  type ThemeState,
-} from './theme.js'
+export { SYSTEM, EVENT, themeScript } from './theme.js'
+export type { ThemeMode, ThemeState, ThemeOptions, Theme } from './theme.js'

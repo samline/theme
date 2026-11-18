@@ -1,5 +1,5 @@
-import { createTheme, themeScript } from '../core/theme.js'
-import type { Theme, ThemeOptions } from '../core/theme.js'
+import { createTheme, themeScript } from '../vanilla/index.js'
+import type { Theme, ThemeOptions } from '../vanilla/index.js'
 
 /**
  * Classic script for pages without a build step. Load it in `<head>` without

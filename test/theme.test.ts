@@ -111,10 +111,14 @@ describe('changing', () => {
     expect(onChange).toHaveBeenLastCalledWith({ mode: 'dark', theme: 'dark' })
     expect(onEvent.mock.calls[0]![0].detail).toEqual({ mode: 'dark', theme: 'dark' })
 
+    // The system shows light: toggling back to it follows the system again.
     theme.toggle()
     expect(theme.theme).toBe('light')
+    expect(theme.mode).toBe('system')
+    expect(localStorage.getItem('theme')).toBe('system')
     theme.toggle()
     expect(theme.theme).toBe('dark')
+    expect(theme.mode).toBe('dark')
 
     // Same mode again: nothing to report.
     onChange.mockClear()
@@ -247,6 +251,15 @@ describe('controls', () => {
     expect($('toggle').getAttribute('aria-pressed')).toBe('true')
   })
 
+  it('stores the literal theme when the default is not system', () => {
+    const theme = create({ defaultMode: 'dark' })
+    theme.toggle()
+    expect(theme.mode).toBe('light')
+    theme.toggle()
+    expect(theme.mode).toBe('dark')
+    expect(localStorage.getItem('theme')).toBe('dark')
+  })
+
   it('leaves controls alone with controls: false', () => {
     document.body.innerHTML = markup
     const theme = create({ controls: false })
@@ -281,6 +294,11 @@ describe('themeScript', () => {
     localStorage.setItem('theme', 'weird')
     run(themeScript({ defaultMode: 'dark' }))
     expect(html.getAttribute('data-theme')).toBe('dark')
+
+    reset()
+    // Not one of `themes`: follow the system, as createTheme does.
+    run(themeScript({ defaultMode: 'sepia' }))
+    expect(html.getAttribute('data-theme')).toBe('light')
 
     reset()
     run(themeScript({ defaultMode: 'auto' }))
