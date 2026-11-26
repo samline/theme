@@ -35,7 +35,16 @@ const sections = {
     descriptionContinuation: 'Install it, try the live preview, then read the full reference.',
     footnotes: ['About 1.8 KB gzip', 'Zero dependencies', `${project.license} licensed`],
     compatibilityLabel: 'ONE SMALL SCRIPT. RIGHT AT HOME IN YOUR STACK.',
-    platforms: ['JavaScript', 'TypeScript', 'React', 'Vue', 'Svelte', 'Shopify', 'WordPress'],
+    platforms: [
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Vue',
+      'Svelte',
+      'Astro',
+      'Shopify',
+      'WordPress',
+    ],
   },
   features: {
     eyebrow: '01 / More than a class toggle',
