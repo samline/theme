@@ -126,7 +126,7 @@ add_action('wp_enqueue_scripts', function () {
     'samline-theme',
     get_theme_file_uri('assets/theme.global.js'),
     [],
-    '1.1.0',
+    '1.2.0',
     ['in_footer' => false]
   );
 });

@@ -1,6 +1,6 @@
 {
   "name": "@samline/theme",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Light, dark and system themes without a flash: stored choice, system preference, other tabs, color-scheme and accessible toggle, button, radio and select controls, for vanilla JavaScript, any framework and plain HTML.",
   "keywords": [
     "theme",
