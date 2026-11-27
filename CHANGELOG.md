@@ -2,6 +2,12 @@
 
 All notable changes to this package. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [semver](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Choosing `'system'` (or toggling back to what the system shows) removes the stored entry instead of storing the literal `system`, so following the system is the absence of a choice. When `defaultMode` is another mode the `system` value is still stored. An older stored `system` keeps working.
+
 ## [1.1.0] - 2026-11-17
 
 ### Changed

@@ -32,6 +32,15 @@ const writeStored = (key: string | false, value: string) => {
   }
 }
 
+const removeStored = (key: string | false) => {
+  if (!key) return
+  try {
+    window.localStorage.removeItem(key)
+  } catch {
+    // Private mode or blocked storage: nothing to remove.
+  }
+}
+
 const prefersDark = () =>
   typeof window.matchMedia === 'function' && window.matchMedia(DARK_QUERY).matches
 
@@ -145,7 +154,10 @@ export const createTheme = (options: ThemeOptions = {}): Theme => {
   const set = (next: ThemeMode) => {
     const valid = normalize(next, themes)
     if (!valid) return
-    writeStored(storageKey, valid)
+    // Following the system is the absence of a choice: drop the entry. When the
+    // default is another mode, an empty entry would not mean "system", so keep it.
+    if (valid === SYSTEM && fallback === SYSTEM) removeStored(storageKey)
+    else writeStored(storageKey, valid)
     apply(valid, true)
   }
 

@@ -95,7 +95,7 @@ Choose a theme or `'system'`, which follows `prefers-color-scheme` and updates l
 
 ### Remembered and in sync
 
-The choice is stored in `localStorage` and reaches every open tab. Blocked storage never throws; the theme simply is not remembered.
+The choice is stored in `localStorage` and reaches every open tab. Choosing `'system'` removes the entry, since following the system is the absence of a choice (the entry is kept as `system` only when `defaultMode` is another mode). An older stored `system` still works. Blocked storage never throws; the theme simply is not remembered.
 
 ### Accessible controls without code
 

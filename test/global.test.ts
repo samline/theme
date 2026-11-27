@@ -35,7 +35,7 @@ describe('browser global', () => {
     Theme.toggle()
     expect(Theme.controller?.theme).toBe('light')
     Theme.set('system')
-    expect(localStorage.getItem('theme')).toBe('system')
+    expect(localStorage.getItem('theme')).toBeNull()
     expect(Theme.themeScript()).toContain('localStorage')
   })
 

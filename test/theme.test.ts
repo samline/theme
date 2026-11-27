@@ -115,7 +115,7 @@ describe('changing', () => {
     theme.toggle()
     expect(theme.theme).toBe('light')
     expect(theme.mode).toBe('system')
-    expect(localStorage.getItem('theme')).toBe('system')
+    expect(localStorage.getItem('theme')).toBeNull()
     theme.toggle()
     expect(theme.theme).toBe('dark')
     expect(theme.mode).toBe('dark')
@@ -150,6 +150,23 @@ describe('changing', () => {
     setSystemDark(false)
     setSystemDark(true)
     expect(theme.theme).toBe('light')
+  })
+
+  it('removes the stored choice for system, but keeps it when the default is another mode', () => {
+    const theme = create()
+    theme.set('dark')
+    expect(localStorage.getItem('theme')).toBe('dark')
+    theme.set('system')
+    expect(localStorage.getItem('theme')).toBeNull()
+    theme.destroy()
+
+    const dark = create({ defaultMode: 'dark' })
+    dark.set('system')
+    expect(localStorage.getItem('theme')).toBe('system')
+    dark.destroy()
+
+    // A legacy stored "system" still reads as system.
+    expect(create().mode).toBe('system')
   })
 
   it('follows other tabs', () => {

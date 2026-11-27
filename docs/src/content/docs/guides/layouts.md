@@ -14,6 +14,7 @@ Define your colors once and override them per theme. Every component that uses t
 
 ```css
 :root {
+  color-scheme: light dark;
   --bg: #ffffff;
   --fg: #18181b;
 }
@@ -26,6 +27,14 @@ body {
   color: var(--fg);
 }
 ```
+
+Declare both schemes before the stylesheet, so native controls, scrollbars and the page background follow the system before any script runs:
+
+```html
+<meta name="color-scheme" content="light dark" />
+```
+
+The package sets `color-scheme` inline on `<html>` once a theme is resolved, so a stored or chosen `light` or `dark` wins over the declaration above, and `system` falls back to it.
 
 To also honor the system without JavaScript, repeat the dark values in `@media (prefers-color-scheme: dark) { :root:not([data-theme]) { … } }`.
 

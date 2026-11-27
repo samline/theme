@@ -25,7 +25,7 @@ sidebar:
 | `scope`              | `document`          | Where controls are looked for and listened to                                                                                      |
 | `onChange`           | none                | Called with `{ mode, theme }` on every change                                                                                      |
 
-A stored value that is not a known theme or `'system'` is ignored, and `defaultMode` is used. `'auto'` is read as `'system'`.
+Choosing `'system'` removes the stored value, unless `defaultMode` is another mode, where `system` is stored so the choice survives. A stored value that is not a known theme or `'system'` is ignored, and `defaultMode` is used. `'auto'` is read as `'system'`.
 
 ## Controls
 

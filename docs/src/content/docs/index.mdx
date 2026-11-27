@@ -36,7 +36,7 @@ import { href } from '../../lib/routes'
 1. The **mode** is read from `localStorage`, or `defaultMode` (`'system'`) when nothing is stored. It is a theme name or `'system'`.
 2. The mode is resolved to a **theme**: `'system'` becomes `'light'` or `'dark'` from `prefers-color-scheme`.
 3. The theme is written on `<html>` as `data-theme` (or a class), with `color-scheme` for native controls and an optional `<meta name="theme-color">`.
-4. A new choice is stored, applied without CSS transitions and reported to listeners and a `themechange` event.
+4. A new choice is stored (choosing `'system'` removes the entry instead), applied without CSS transitions and reported to listeners and a `themechange` event.
 5. While in system mode, a change in the operating system updates the page. A choice made in another tab updates this one.
 
 ## Pieces
